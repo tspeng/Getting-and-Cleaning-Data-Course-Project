@@ -75,5 +75,5 @@ names(total_acc_y) <- win_names
 names(total_acc_z) <- win_names
 
 ##From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-ave_activity <- aggregate(X,list(y$activities),mean)       #Average of each variable for each activity 
-ave_subject <-  aggregate(X,list(subject$identifier),mean) #Average of each variable for each subject
+average<-  aggregate(X,by=c(list(y$activities),list(subject$identifier)),mean) #Average of each variable for each subject and each activity
+write.table(average,"./Dataset/UCI HAR Dataset/average.txt",row.name=FALSE)
